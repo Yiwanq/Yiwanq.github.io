@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Qwan&#39;s blog</title>
+  <subtitle>Which would be worse? To live as a monster or to die as a good man?</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://Yiwanq.com/"/>
+  <updated>2017-04-30T19:15:09.336Z</updated>
+  <id>http://Yiwanq.com/</id>
+  
+  <author>
+    <name>Qwan</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>test</title>
+    <link href="http://Yiwanq.com/2017/05/01/test/"/>
+    <id>http://Yiwanq.com/2017/05/01/test/</id>
+    <published>2017-04-30T17:10:51.000Z</published>
+    <updated>2017-04-30T19:15:09.336Z</updated>
+    
+    <content type="html"><![CDATA[<p>需要显示的内容<br>后面还有</p>
+<a id="more"></a>
+<p>新模板</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;需要显示的内容&lt;br&gt;后面还有&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术支持" scheme="http://Yiwanq.com/categories/%E6%8A%80%E6%9C%AF%E6%94%AF%E6%8C%81/"/>
+    
+    
+      <category term="hexo" scheme="http://Yiwanq.com/tags/hexo/"/>
+    
+      <category term="练习" scheme="http://Yiwanq.com/tags/%E7%BB%83%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>my-word</title>
+    <link href="http://Yiwanq.com/2017/04/30/my-word/"/>
+    <id>http://Yiwanq.com/2017/04/30/my-word/</id>
+    <published>2017-04-30T08:55:47.766Z</published>
+    <updated>2017-04-30T03:47:17.142Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="试验而已1"><a href="#试验而已1" class="headerlink" title="试验而已1"></a>试验而已1</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;试验而已1&quot;&gt;&lt;a href=&quot;#试验而已1&quot; class=&quot;headerlink&quot; title=&quot;试验而已1&quot;&gt;&lt;/a&gt;试验而已1&lt;/h2&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>my-new-post</title>
+    <link href="http://Yiwanq.com/2017/04/30/my-new-post/"/>
+    <id>http://Yiwanq.com/2017/04/30/my-new-post/</id>
+    <published>2017-04-30T08:55:47.764Z</published>
+    <updated>2017-04-30T03:44:52.191Z</updated>
+    
+    <content type="html"><![CDATA[<p>试验一下</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;试验一下&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>hellpo</title>
+    <link href="http://Yiwanq.com/2017/04/30/hellpo/"/>
+    <id>http://Yiwanq.com/2017/04/30/hellpo/</id>
+    <published>2017-04-30T08:55:47.762Z</published>
+    <updated>2017-04-30T03:48:02.657Z</updated>
+    
+    <content type="html"><![CDATA[<p>编辑文章<br>‘<br>hexo new “My New Post”会在D:\Hexo\source_posts目录下生成一个markdown文件：My-New-Post.md<br>‘</p>
+<p>可以使用一个支持markd</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;编辑文章&lt;br&gt;‘&lt;br&gt;hexo new “My New Post”会在D:\Hexo\source_posts目录下生成一个markdown文件：My-New-Post.md&lt;br&gt;‘&lt;/p&gt;
+&lt;p&gt;可以使用一个支持markd&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>first</title>
+    <link href="http://Yiwanq.com/2017/04/30/first/"/>
+    <id>http://Yiwanq.com/2017/04/30/first/</id>
+    <published>2017-04-30T08:55:47.760Z</published>
+    <updated>2017-04-30T03:11:18.723Z</updated>
+    
+    <content type="html"><![CDATA[<p>你好，欢迎来到我的个人技术博客。<br>haihao</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;你好，欢迎来到我的个人技术博客。&lt;br&gt;haihao&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://Yiwanq.com/2017/04/30/hello-world/"/>
+    <id>http://Yiwanq.com/2017/04/30/hello-world/</id>
+    <published>2017-04-30T08:23:16.474Z</published>
+    <updated>2017-04-30T08:23:16.474Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>second</title>
+    <link href="http://Yiwanq.com/2017/04/23/second/"/>
+    <id>http://Yiwanq.com/2017/04/23/second/</id>
+    <published>2017-04-23T04:53:40.000Z</published>
+    <updated>2017-04-30T05:43:28.726Z</updated>
+    
+    <content type="html"><![CDATA[<p>asdfkasdlf</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;asdfkasdlf&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+      <category term="博客" scheme="http://Yiwanq.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+</feed>
