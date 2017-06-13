@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="black" name="apple-mobile-web-app-status-bar-style">
+  <meta content="telephone=no" name="format-detection">
+  <meta name="keywords" content="undefined">
+  <meta name="description" content="null">
+  <meta name="author" content="Qwan">
+
+  
+  <title>mysql、redis、mongodb对比以及与python的交互</title>
+  
+  <link rel="icon" href="img/icon.ico" type="img/x-ico"/>
+  <link rel="alternate" href="/atom.xml" title="Qwan&#39;s blog" type="application/atom+xml">
+  <link rel="canonical" href="http://Yiwanq.com/2017/04/23/2017_4_database/index.html">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_pb2xepysv85gsyvi.css">
+</head>
+
+
+  <body>
+    <aside class="aside">
+  <nav class="aside-menu">
+    <ul class="aside-list">
+      
+        
+        <li class="aside-item"><i class="aside-menu-icon iconfont icon-wendang"></i><a href="/index.html" class="aside-menu-link" title="首页">首页</a></li>
+        
+      
+        
+        <li class="aside-item"><i class="aside-menu-icon iconfont icon-wendang1"></i><a href="/archives/index.html" class="aside-menu-link" title="所有文章">所有文章</a></li>
+        
+      
+        
+        <li class="aside-item"><i class="aside-menu-icon iconfont icon-biaoqian1"></i><a href="/tags/index.html" class="aside-menu-link" title="分类标签">分类标签</a></li>
+        
+      
+        
+        <li class="aside-item"><i class="aside-menu-icon iconfont icon-lianjie"></i><a href="/links/index.html" class="aside-menu-link" title="友情链接">友情链接</a></li>
+        
+      
+        
+        <li class="aside-item"><i class="aside-menu-icon iconfont icon-guanyu"></i><a href="/about/index.html" class="aside-menu-link" title="关于">关于</a></li>
+        
+      
+        
+        <li class="aside-item"><i class="aside-menu-icon iconfont icon-rss"></i><a href="/atom.xml" class="aside-menu-link" title="RSS">RSS</a></li>
+        
+      
+    </ul>
+  </nav>
+
+  <article class="aside-show">
+    
+      <form class="search-from" id="search-from">
+  <input class="search-text" id="search-text" type="text" name="searchText" value="" autocomplete="off">
+  <button class="search-btn" id="search-btn" type="button"><i class="search-btn-icon iconfont icon-sousuo-sousuo"></i></button>
+</form>
+
+      <article class="search-data" id="search-data">
+  <button class="search-close" id="search-close"><i class="search-close-icon iconfont icon-houdongfangiconfont10"></i></button>
+
+  <div class="search-wrapper" id="search-wrapper"></div>
+</article>
+
+    
+    <div class="aside-show-wrapper">
+      <figure class="aside-avatar">
+        <img src="/img/avatar.jpg" alt="avatar" class="aside-avatar-img">
+        <figcaption class="aside-avatar-caption">
+          Qwan
+          
+          <strong class="aside-avatar-STRONG">个人博客</strong>
+          
+        </figcaption>
+      </figure>
+      <p class="aside-show-description">Which would be worse? To live as a monster or to die as a good man?</p>
+      <ul class="aside-show-info">
+        <li class="aside-show-item">
+          <a href="javascript: void(0);" class="aside-show-link" title="微信" target="_blank"><i class="aside-show-icon iconfont icon-iconfontweixin"></i></a>
+          <div class="aside-show-outside aside-show-outside_1">
+            <img class="aside-show-IMG aside-show-IMG_1" src="/img/weixin.png" alt="微信">
+          </div>
+        </li>
+        <li class="aside-show-item"><a href="https://www.zhihu.com" class="aside-show-link" title="知乎" target="_blank"><i class="aside-show-icon iconfont icon-zhihu"></i></a></li>
+        <li class="aside-show-item"><a href="https://github.com/Yiwanq" class="aside-show-link" title="github" target="_blank"><i class="aside-show-icon iconfont icon-github"></i></a></li>
+        <li class="aside-show-item">
+          <a href="javascript: void(0);" class="aside-show-link" title="QQ" target="_blank"><i class="aside-show-icon iconfont icon-qq"></i></a>
+          <div class="aside-show-outside">
+            <img class="aside-show-IMG" src="/img/qq.png" alt="QQ">
+          </div>
+        </li>
+      </ul>
+    </div>
+  </article>
+</aside>
+
+
+    <article class="main" id="main">
+      <article class="post min-height">
+  
+  <header class="post-header">
+    
+    <h1 class="post-title">mysql、redis、mongodb对比以及与python的交互</h1>
+    <p class="post-meta">
+      <span class="post-time">2017-04-23</span>
+      
+      <a href="/categories/数据库/" title="数据库" class="post-categories">数据库</a>
+      
+      
+      <a href="/tags/mysql、redis、mongodb、python/"" title="mysql、redis、mongodb、python" class="post-tags"><i class="post-tags-icon iconfont icon-biaoqian"></i>mysql、redis、mongodb、python</a>
+      
+    </p>
+    
+  </header>
+  <div class="post-content"><p>数据库使得底层数据得到持久化存储，保证数据的安全可靠性，并提供简易快捷的接口供数据需求者进行快速检索。在国内高校中，大学生普遍学习的数据库技术是Microsoft SQL Server，但它只能在wiindows上使用，一般配置ASP.Net 开发，为在windows系统下开发程序的人员带来了极大便利，属于关系型数据库。在本文中，我们主要涉及了三种数据库，如题，第一个是关系型数据库，后两个属于no sql，主要关注于它们的不同之处与操作，以及配合python 做交互。</p>
+<p>因为现在大数据非常非常非常火，所以提供了两个链接，大家可以看一看：</p>
+<ul>
+<li><a href="https://db-engines.com/en/ranking" target="_blank" rel="external">数据库受欢迎程度排名</a></li>
+<li><p><a href="http://mattturck.com/wp-content/uploads/2017/04/Big-Data-Landscape-2017-Matt-Turck-FirstMark.png" target="_blank" rel="external">2017年大数据版图</a></p>
+</li>
+<li><p><img src="../images/database.png" alt="数据库分类"></p>
+</li>
+</ul>
+<h1 id="mysql、redis、mongodb对比"><a href="#mysql、redis、mongodb对比" class="headerlink" title="mysql、redis、mongodb对比"></a>mysql、redis、mongodb对比</h1><h2 id="mysql-："><a href="#mysql-：" class="headerlink" title="mysql ："></a>mysql ：</h2><ul>
+<li>关系型数据库，需要创建库，并严格定义表结构；</li>
+<li>innodb行锁（仅对于操作数据库，如写入），支持事务，回文，myisam是表锁，不支持事务，查询快；</li>
+<li>性能，innodb强，服务器innodb，而客户端myisam；</li>
+<li>C和C++编写；</li>
+<li>存储数据时，计算机默认为32位，所以不用考虑字节；</li>
+<li>查询快，事务差；</li>
+<li>windows上创建数据库比较方便的有SQLyog；</li>
+<li>null跟任何结果做运算，结果都为null</li>
+</ul>
+<h3 id="图形界面软件："><a href="#图形界面软件：" class="headerlink" title="图形界面软件："></a>图形界面软件：</h3><p>   navicat for mysql</p>
+<h3 id="服务器端基本操作命令：（打开）"><a href="#服务器端基本操作命令：（打开）" class="headerlink" title="服务器端基本操作命令：（打开）"></a>服务器端基本操作命令：（打开）</h3><pre><code>sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf
+sudo service mysql start/stop/restarat
+sudo /etc/init.d/mysql start/stop/restarat
+</code></pre><h3 id="客户端基本操作命令（记得-）："><a href="#客户端基本操作命令（记得-）：" class="headerlink" title="客户端基本操作命令（记得 + ;）："></a>客户端基本操作命令（记得 + ;）：</h3><pre><code>mysql -uroot -pmysql  （-h 指定服务器的ip，u指用户，p指密码）
+
+show databases;
+select database();
+use 数据库名;
+drop database 数据库名;
+
+show tables;
+desc 表名;
+show create table 表名;
+alter table 表名 add/change/modify/drop ...
+drop table 表名;
+</code></pre><h3 id="数据的命令-即-sql语句："><a href="#数据的命令-即-sql语句：" class="headerlink" title="数据的命令,即 sql语句："></a>数据的命令,即 sql语句：</h3><pre><code>create table 
+insert/update/delete/select 
+聚合函数：count()/max(中可加条件)/min()/sum()/avg(),仅用于select 后面，不可用于from后面，且单独使用
+group by ... having ...
+order by asc/desc
+limit 0, 3 下标从0开始，取3个
+inner/left/right join on 条件
+union 全连接
+自连接：相同表，不同as别名
+
+举个栗子：
+create table t_hero(
+id int unsigned auto_increment primary key;
+name varchar(10) unique not null,
+age tinyint unsigned default 0,
+gender set(&quot;男&quot;, &quot;女&quot;),
+state varchar(10)
+);
+
+insert into classes(name) values(&apos;NO1&apos;);
+update classes set name=&apos;NO2&apos; where id=4;
+delete from students where clsid=1;
+select * from students;
+
+SELECT tb.bookName, tb.price, tby.bookTypeName
+FROM t_book as tb
+INNER JOIN t_bookType as tby
+ON tb.bookTypeId = tby.id;
+</code></pre><h3 id="mysql-与-python交互："><a href="#mysql-与-python交互：" class="headerlink" title="mysql 与 python交互："></a>mysql 与 python交互：</h3><pre><code>除查询外执行的都是事务，出问题执行回滚
+
+import MySQLdb
+
+def insert_data():
+    sql = &quot;DELETE FROM t_book where bookName like &apos;%明%&apos;&quot;
+    try:
+        # 创建MySQL数据库连接对象
+        conn = MySQLdb.connect(
+            host = &quot;localhost&quot;, # 指定数据库所在的ip
+            port = 3306,       # 指定数据库的端口号
+            user = &apos;root&apos;,      # 指定登录数据库的用户
+            passwd = &apos;***&apos;, # 登录数据库的用户密码
+            db = &apos;db_book&apos;,     # 指定的操作的数据库名称
+            charset = &apos;utf8&apos;    # 指定字符集，和数据库字符集相同
+        )
+        cursor = conn.cursor()
+        cursor.execute(sql)
+        conn.commit()
+    except Exception, e:
+        print e
+        conn.rollback()
+    finally:
+        cursor.close()
+        conn.close()
+        print &quot;LOG: 执行结束!&quot;
+
+
+if __name__ == &quot;__main__&quot;:
+    insert_data()
+</code></pre><h2 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h2><ul>
+<li><a href="http://redis.cn" target="_blank" rel="external">中文网站</a></li>
+<li><a href="http://redis.io" target="_blank" rel="external">官方网站</a></li>
+</ul>
+<h3 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h3><ul>
+<li>性能极高：Redis能读取速度约110000次/s，写入速度约81000次/s </li>
+<li>支持丰富的数据类型： Redis支持最大多数开发人员已经知道如列表，集合，可排序集合，哈希等数据类型。</li>
+<li>操作都是原子的，从而确保当两个客户同时访问 Redis 服务器得到的是更新后的值（最新值）。</li>
+</ul>
+<h3 id="案例："><a href="#案例：" class="headerlink" title="案例："></a>案例：</h3><p>  全球最大的用户就是新浪微博，但由于redis 造价较高，多数it公司采用redis + mysql 的模式</p>
+<h3 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h3><pre><code>* nosql，C语言编写，高性能内存数据库；
+* 总共有16个库，不需要创建库，直接select选择库；
+* key-value型:
+  * key:直接创建
+  * 形式：string、hash、list（链表）、set、zset（有序集合）；
+  * value ：filed与value；
+
+* 社交软件的推荐系统，set类型，交集并集操作；
+* 游戏中排名zset类型；
+* 下表索引从零开始，左右都包含；
+* redis-cli --raw 可输入中文；
+
+* redis中deamonize是否以守护进程运行
+  * 若yes则不会在命令行阻塞，后台服务
+  * no则以非守护进程运行，当前终端阻塞，并显示服务状态;
+
+* redis主从服务器从只能连接主的，两者间share data
+* 集群更像是一个网络，没有主从之分，节点之间share data，或者某个指管存储，某些只管读取
+</code></pre><h3 id="图形界面："><a href="#图形界面：" class="headerlink" title="图形界面："></a>图形界面：</h3><pre><code>Redis Desktop Manager  （redis自带）
+</code></pre><h3 id="服务器端基本操作命令："><a href="#服务器端基本操作命令：" class="headerlink" title="服务器端基本操作命令："></a>服务器端基本操作命令：</h3><pre><code>sudo redis-server /etc/redis/redis.conf
+or sudo redis-server 默认data下的配置文件，与前者不一致
+</code></pre><h3 id="客户端基本操作命令："><a href="#客户端基本操作命令：" class="headerlink" title="客户端基本操作命令："></a>客户端基本操作命令：</h3><pre><code>redis-cli -h 192.168.xx.xxx 
+redis-cli  （默认本机）
+
+keys *
+type key     
+del key
+
+string: 最大存储 512MB
+get/setnx/mset/msetnx name &apos;Sam&apos;
+get/getnx/mget/mgetnx name
+getset name &apos;Sam&apos;
+setrange email 11 &apos;Sam&apos;  # 用Sam覆盖第11位开始的值
+getrange name 1 3  # 取1到3位置的值
+incr/decr age 
+incrby/decrby age 10
+append name &apos;Sam&apos; # 后面 + ‘Sam’
+
+hash field：value的映射表，2的32次方-1（40多亿）键值对
+hset/hsetnx/hmset myhash field &apos;Sam&apos;
+hget/hgetnx/hmget myhash field
+hkeys/hvals/hgetall myhash
+hlen myhash
+hincrby/hincrbyfloat myhash num 10
+hexists/hdel myhash field
+hstrlen myhash field
+
+list 列表 2的32次方-1（40多亿）
+lrange mylist 0 -1 # 返回全部元素
+lpush/rpush my_llist &quot;mysql&quot; &quot;redis&quot; &quot;mongodb&quot;
+linsert my_llist before或after 现有元素 新元素
+lindex my_rlist 4 # 指定位置的元素
+lset my_llist index value #修改指定位置index元素
+lrem my_llist count value # count &gt; 0 从头，&lt; 0 从尾，= 0 全部
+lpop/rpop/blpop/brpop my_llist 
+ltrim my_llist start stop  # 修剪列表
+
+set 集合 哈希表实现，复杂度O(1);
+无序集合/不重复/无修改操作/元素为string
+sadd mset &apos;python&apos; &apos;redis&apos; &apos;mongodb&apos;
+scard mset # 返回元素
+sismenber mset &apos;redis&apos;
+srandmember mset (默认为1，可加数字，返回个数)
+smenbers mset # 返回所有成员
+srem mset &apos;mysql&apos; # 删除成员
+sinter/sunion/sdiff mset01 mset02 # 交、并、差
+sinterstore/sunionstore/sdiffstore mset mset01 mset02 # 将结果保存到mset中
+
+zset :
+     * 有序集合（sorted set） 2的32次方-1（40多亿） 
+     * 跟随double类型分数（score权重）升序排列；
+     * key 即为集合名称，例如myzset
+zadd key score1 member1 score2 member2 ...
+zcount key min max  # 返回score在min与max之间的元素
+zrange key start stop [WITHSCORES] # 索引范围元素，同上者不同
+zrangebyscore key min max # 返回score范围内的元素
+zscore key member # 返回member的score
+zrem key member1 member2
+zremrangebyscore key min max
+zincrby key increment member #为有序集key的成员member的score值加上增量increment 
+zrevrange key start stop [WITHSCORES]  # 按从⼤到⼩排序⽅式进⾏排序
+</code></pre><h3 id="数据备份与恢复："><a href="#数据备份与恢复：" class="headerlink" title="数据备份与恢复："></a>数据备份与恢复：</h3><pre><code>redis 127.0.0.1:6379&gt; SAVE  # 创建当前数据库的备份，该命令将在 redis 安装目录中创建dump.rdb文件
+
+恢复数据，将备份文件 (dump.rdb) 移动到 redis 安装目录并启动服务即可。
+获取 redis 安装目录可以使用 CONFIG 命令，如下所示：
+redis 127.0.0.1:6379&gt; CONFIG GET dir
+1) &quot;dir&quot;
+2) &quot;/home/用户名&quot;
+</code></pre><h3 id="redis-与-python交互："><a href="#redis-与-python交互：" class="headerlink" title="redis 与 python交互："></a>redis 与 python交互：</h3><pre><code>设置值返回true/false, 删改返回影响行数，查找返回内容
+redis_cli = redis.StrictRedis()
+redis_pipe.set(&quot;Sam&quot;, &quot;300&quot;) 第一列永远是key，之后是value内容
+</code></pre><h4 id="一般操作"><a href="#一般操作" class="headerlink" title="一般操作"></a>一般操作</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"># coding：utf-8</div><div class="line">def test():</div><div class="line">    try:</div><div class="line">        #redis_cli = redis.Redis(host = &quot;localhost&quot;, port = 6379, db=0)</div><div class="line">        #redis_cli = redis.StrictRedis(host = &quot;localhost&quot;, port = 6379, db=0)</div><div class="line">        redis_cli = redis.StrictRedis() # 本机</div><div class="line">        result = redis_cli.set(&quot;name&quot;, &quot;Sam&quot;) # 增</div><div class="line">        result = redis_cli.set(&quot;name&quot;, &quot;Lily&quot;) # 改</div><div class="line">        redis_cli.delete(&quot;jocabi&quot;,&quot;Joy&quot;) # 删</div><div class="line"></div><div class="line">        print result</div><div class="line">    except Exception, e:</div><div class="line">        print e</div><div class="line"></div><div class="line">if __name__ == &quot;__main__&quot;:</div><div class="line">    test()</div></pre></td></tr></table></figure>
+<h4 id="管道操作"><a href="#管道操作" class="headerlink" title="管道操作"></a>管道操作</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">import redis</div><div class="line"></div><div class="line">def pipeline():</div><div class="line">    try:</div><div class="line">        redis_cli = redis.StrictRedis()</div><div class="line">        redis_pipe = redis_cli.pipeline()</div><div class="line"></div><div class="line">        redis_pipe.set(&quot;Sam&quot;, &quot;300&quot;)</div><div class="line">        redis_pipe.set(&quot;Lily&quot;, &quot;200&quot;)</div><div class="line">        redis_pipe.keys()</div><div class="line"></div><div class="line">        pipe_list = redis_pipe.execute()</div><div class="line">        for item in pipe_list:</div><div class="line">            print item</div><div class="line">    except Exception, e:</div><div class="line">        print e</div><div class="line"></div><div class="line">if __name__ == &quot;__main__&quot;:</div><div class="line">    pipeline()</div></pre></td></tr></table></figure>
+<h2 id="mongodb"><a href="#mongodb" class="headerlink" title="mongodb"></a>mongodb</h2><h3 id="动态显示json网站："><a href="#动态显示json网站：" class="headerlink" title="动态显示json网站："></a>动态显示json网站：</h3><p>mongodb 特别适合存储json 格式的数据，所以我们可能会遇到动态显示json的网站<a href="www.json.cn/">www.json.cn/</a>，也可在浏览器的扩展程序中加入JSONView工具包。</p>
+<h3 id="特点-："><a href="#特点-：" class="headerlink" title="特点 ："></a>特点 ：</h3><pre><code>* C++ 语言编写，分布式 文件存储，
+* 不需要建库，document格式，
+* key-value 格式，高性能和高度伸缩性（适合数十/数百台服务器），符合json格式；
+* 不适合高度事务与sql语句查询；
+* MongoDB使⽤的是内存映射存储引擎，它会把磁盘IO操作转换成内存操作，如果是读操作，内存中的数据起到缓存的作⽤，如果是写操作，内存还可以把随机的写操作转换成顺序的写操作，⼤幅度提升性能；
+* logappend错误日志追加，一般不使用，因为日志会越来越大；
+* mongodb使用系统的内存，进行动态内存分配，对内存消耗较大，根据os * map机制动态分配后冷数据会被清除掉；
+</code></pre><h3 id="服务器端基本操作命令：-1"><a href="#服务器端基本操作命令：-1" class="headerlink" title="服务器端基本操作命令："></a>服务器端基本操作命令：</h3><pre><code>sudo mongod 
+sudo mongod -f /etc/mongod.cnf  # 配置文件启动
+sudo mongod --logpath=/data/db/mongodb.log --fork  # 守护进程启动
+sudo mongod --auth  # 用户认证方式启动
+exit
+</code></pre><h3 id="客户端基本操作命令：-1"><a href="#客户端基本操作命令：-1" class="headerlink" title="客户端基本操作命令："></a>客户端基本操作命令：</h3><pre><code>mongo
+</code></pre><h3 id="数据操作：-数据库-→-集合-→-文档（key-value）"><a href="#数据操作：-数据库-→-集合-→-文档（key-value）" class="headerlink" title="数据操作： 数据库 → 集合 → 文档（key-value）"></a>数据操作： 数据库 → 集合 → 文档（key-value）</h3><pre><code>show dbs
+db.dropDatabase()
+use 数据库名
+
+show collections
+db.createCollection(&apos;stu&apos;) # 当前数据库创建集合
+db.stu.drop() # stu 指刚创建的集合
+
+db.stu.insert({_id = 1, name : &quot;Sam&quot;, age = 18}) # _id自动创建id对象
+db.stu.find()
+db.集合名称.find({条件文档}).pretty()
+比较运算符：默认 = ; $lt/$lte/$gt/$gte/$ne
+逻辑运算符：默认 and; $and/$or/$in # 后面加[]
+正则：使用 / /  或 $regex  编写正则表达式
+自定义：$where
+
+栗子：db.stu.find({name : {$regex : &quot;DING&quot;, $options : &quot;$i&quot;}})  # 匹配忽略大小写
+      db.stu.find({$where : function() {return this.age &gt; 30}})
+
+db.集合名称.find().limit(NUMBER) # 指定数量的文档
+db.集合名称.find().skip(NUMBER)  # 跳过
+投影：db.集合名称.find({},{字段名称:1,...}) # 1表示显示，0表示不显示
+排序：db.集合名称.find().sort({字段:1,...}) # 1升序 -1降序
+统计：db.集合名称.find({条件}).count()
+      db.集合名称.count({条件}) 
+去重：db.集合名称.distinct(&apos;去重字段&apos;,{条件})
+
+db.集合名称.save(document)
+
+db.集合名称.update(
+    &lt;query&gt;,
+    &lt;update&gt;,
+    {multi: &lt;boolean&gt;}
+)
+db.stu.update({},{$set:{gender:0}},{multi:true}) # 修改
+
+db.集合名称.remove(
+    &lt;query&gt;,
+    {
+    justOne: &lt;boolean&gt;   # true/1 只删除一条；默认false
+    }
+)
+
+聚合：
+    db.集合名称.aggregate([ {管道 : {表达式}} ])
+
+    管道：
+      $group  ：将集合中的文档分组，可用于统计结果
+    $match  ：过滤数据，只输出符合条件的文档
+    $project  ：修改输入文档的结构，如重命名、增加、删除字段、创建计算结果
+    $sort  ：将输入文档档排序后输出
+    $limit  ：限制聚合管道返回的⽂档数
+    $skip  ：跳过指定数量的文档，并返回余下的文档
+    $unwind  ：将数组类型的字段进行拆分
+
+    表达式：
+    $sum  ：计算总和，$sum:1同count表示计数
+    $avg  ：计算平均值
+    $min  ：获取最⼩值
+    $max  ：获取最⼤值
+    $push  ：在结果⽂档中插⼊值到⼀个数组中
+    $first  ：根据资源⽂档的排序获取第⼀个⽂档数据
+    $last  ：根据资源⽂档的排序获取最后⼀个⽂档数据
+
+    栗子：若_id为null，则集合中所有文档分为一组
+    db.stu.aggregate([
+        {$group:
+        {
+        _id:&apos;$gender&apos;,
+        counter:{$sum:1}
+        }
+        }
+    ])
+</code></pre><h3 id="备份与恢复："><a href="#备份与恢复：" class="headerlink" title="备份与恢复："></a>备份与恢复：</h3><pre><code>备份：mongodump -h 服务器地址 -d 数据库名 -o 备份的文件位置
+恢复：mongodump -h 服务器地址 -d 数据库名 --dir 备份数据所在位置
+</code></pre><h3 id="与python交互："><a href="#与python交互：" class="headerlink" title="与python交互："></a>与python交互：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">#coding=utf-8</div><div class="line"></div><div class="line">from MySQLdb import *</div><div class="line">from pymongo import *</div><div class="line"></div><div class="line">try:</div><div class="line">    #建立连接，获取cursor</div><div class="line">    conn = connect(host=&apos;localhost&apos;,port=3306,db=&apos;test1&apos;,user=&apos;root&apos;,passwd=&apos;***&apos;,charset=&apos;utf8&apos;)</div><div class="line">    cursor = conn.cursor()</div><div class="line"></div><div class="line">    #执行查询</div><div class="line">    sql = &apos;select * from v_cls_stu&apos; # 仅有两列，所有下面item[0],item[1]</div><div class="line">    cursor.execute(sql)</div><div class="line">    result = cursor.fetchall()</div><div class="line"></div><div class="line">    #关闭</div><div class="line">    cursor.close()</div><div class="line">    conn.close()</div><div class="line"></div><div class="line">    # print(result)</div><div class="line">    #向数据存入mongodb</div><div class="line">    client = MongoClient(&apos;mongodb://localhost:27017&apos;)</div><div class="line">    db = client.test1</div><div class="line">    for item in result:</div><div class="line">        db.cls_stu.insert(&#123;&apos;clsName&apos;:item[0],&apos;stuName&apos;:item[1]&#125;)</div><div class="line">    print(&apos;ok&apos;)</div><div class="line">except Exception,e:</div><div class="line">    print(e)</div></pre></td></tr></table></figure>
+<ul>
+<li>find()方法，会返回cursor对象，即id位置，用for…in…遍历；</li>
+<li>find_one()返回找到的值，没有则为null；</li>
+</ul>
+<h3 id="mongodb基本操作"><a href="#mongodb基本操作" class="headerlink" title="mongodb基本操作"></a>mongodb基本操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">#coding=utf-8</div><div class="line">from pymongo import *</div><div class="line"></div><div class="line">try:</div><div class="line">	#连接</div><div class="line">	client=MongoClient(&apos;localhost&apos;,27017)</div><div class="line"></div><div class="line">	# 构造json对象</div><div class="line">	doc1=&#123;&apos;name&apos;:&apos;hr&apos;,&apos;home&apos;:&apos;thd&apos;&#125;</div><div class="line">	doc2=&#123;&apos;name&apos;:&apos;mnc&apos;,&apos;home&apos;:&apos;njc&apos;&#125;</div><div class="line">	doc=[doc1,doc2]</div><div class="line">	</div><div class="line">	db=client.py3</div><div class="line">	db.stu.insert_many(doc) # 插入文档，都是&#123;key-value&#125;形式</div><div class="line"></div><div class="line">	doc=db.stu.find_one() # 查找</div><div class="line">	print &apos;%s--%s&apos;%(doc[&apos;name&apos;],doc[&apos;hometown&apos;])</div><div class="line"></div><div class="line">	cursor=db.stu.find(&#123;&apos;hometown&apos;:&apos;北京&apos;&#125;) # 查找多条</div><div class="line">	for doc in cursor:</div><div class="line">		print &apos;%s--%s&apos;%(doc[&apos;name&apos;],doc[&apos;hometown&apos;])</div><div class="line"></div><div class="line">	db.stu.update_one(&#123;&apos;gender&apos;:False&#125;,&#123;&apos;$set&apos;:&#123;&apos;name&apos;:&apos;Jane&apos;&#125;&#125;) # 修改</div><div class="line">	db.stu.update_many(&#123;&apos;gender&apos;:True&#125;,&#123;&apos;$set&apos;:&#123;&apos;name&apos;:&apos;Jack&apos;&#125;&#125;) # 修改多条</div><div class="line"></div><div class="line">	db.stu.delete_one(&#123;&apos;gender&apos;:True&#125;) # 删除</div><div class="line">	db.stu.delete_many(&#123;&apos;gender&apos;:False&#125;) </div><div class="line"></div><div class="line">except Exception,e:</div><div class="line">	print e</div></pre></td></tr></table></figure></div>
+    
+      <p class="post-copyright">若无特别说明，本文系原创，转载文章请注明来自<a class="post-copyright-link" href="/" title="Qwan的个人博客" target="_blank">Qwan的个人博客</a>，或链接上原文地址：<a class="post-copyright-link" href="http://Yiwanq.com/2017/04/23/2017_4_database/" title="http://Yiwanq.com/2017/04/23/2017_4_database/" target="_blank">http://Yiwanq.com/2017/04/23/2017_4_database/</a></p>
+
+      
+      <div class="toc-wrapper">
+        <div class="toc-scroll">
+          <div class="toc-middle">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#mysql、redis、mongodb对比"><span class="toc-text">mysql、redis、mongodb对比</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#mysql-："><span class="toc-text">mysql ：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#图形界面软件："><span class="toc-text">图形界面软件：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#服务器端基本操作命令：（打开）"><span class="toc-text">服务器端基本操作命令：（打开）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#客户端基本操作命令（记得-）："><span class="toc-text">客户端基本操作命令（记得 + ;）：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据的命令-即-sql语句："><span class="toc-text">数据的命令,即 sql语句：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql-与-python交互："><span class="toc-text">mysql 与 python交互：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#redis"><span class="toc-text">redis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#优势"><span class="toc-text">优势</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#案例："><span class="toc-text">案例：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特点："><span class="toc-text">特点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图形界面："><span class="toc-text">图形界面：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#服务器端基本操作命令："><span class="toc-text">服务器端基本操作命令：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#客户端基本操作命令："><span class="toc-text">客户端基本操作命令：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据备份与恢复："><span class="toc-text">数据备份与恢复：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#redis-与-python交互："><span class="toc-text">redis 与 python交互：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一般操作"><span class="toc-text">一般操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#管道操作"><span class="toc-text">管道操作</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mongodb"><span class="toc-text">mongodb</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#动态显示json网站："><span class="toc-text">动态显示json网站：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特点-："><span class="toc-text">特点 ：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#服务器端基本操作命令：-1"><span class="toc-text">服务器端基本操作命令：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#客户端基本操作命令：-1"><span class="toc-text">客户端基本操作命令：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据操作：-数据库-→-集合-→-文档（key-value）"><span class="toc-text">数据操作： 数据库 → 集合 → 文档（key-value）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#备份与恢复："><span class="toc-text">备份与恢复：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#与python交互："><span class="toc-text">与python交互：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mongodb基本操作"><span class="toc-text">mongodb基本操作</span></a></li></ol></li></ol></li></ol>
+          </div>
+        </div>
+      </div>
+    
+  
+</article>
+
+      <footer class="footer">
+  <p class="footer-text">驱动于<a href="https://hexo.io/zh-cn/" class="footer-link" title="Hexo">Hexo</a></p>
+  <p class="footer-text">&copy; 2016 <a href="/about" class="footer-link" title="Qwan">Qwan</a></p>
+</footer>
+
+    </article>
+    
+    <script src="/js/to-top.js"></script>
+    <script src="/js/search.js"></script>
+  </body>
+</html>
