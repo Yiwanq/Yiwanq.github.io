@@ -107,72 +107,21 @@
       <article class="posts min-height">
   
   <section class="post">
-    <h3 class="post-title"><a href="/2017/05/01/test/" class="post-title-link" title="test">test</a></h3>
-    <div class="post-excerpt"><p>需要显示的内容<br>后面还有</p></div>
-    <a href="/2017/05/01/test/" class="post-more" title="阅读全文">阅读全文 »</a>
-    <p class="post-meta">
-      
-      <a href="/categories/技术支持/" title="技术支持" class="post-categories">技术支持</a>
-      
-      
-      <a href="/tags/hexo/"" title="hexo" class="post-tags"><i class="post-tags-icon iconfont icon-biaoqian"></i>hexo</a>
-      
-      <a href="/tags/练习/"" title="练习" class="post-tags"><i class="post-tags-icon iconfont icon-biaoqian"></i>练习</a>
-      
-      <span class="post-time">2017-05-01</span>
-    </p>
-  </section>
-  
-  <section class="post">
-    <h3 class="post-title"><a href="/2017/04/30/my-word/" class="post-title-link" title="my-word">my-word</a></h3>
-    <div class="post-excerpt"></div>
-    <a href="/2017/04/30/my-word/" class="post-more" title="阅读全文">阅读全文 »</a>
-    <p class="post-meta">
-      
-      
-      <span class="post-time">2017-04-30</span>
-    </p>
-  </section>
-  
-  <section class="post">
-    <h3 class="post-title"><a href="/2017/04/30/hellpo/" class="post-title-link" title="hellpo">hellpo</a></h3>
-    <div class="post-excerpt"></div>
-    <a href="/2017/04/30/hellpo/" class="post-more" title="阅读全文">阅读全文 »</a>
-    <p class="post-meta">
-      
-      
-      <span class="post-time">2017-04-30</span>
-    </p>
-  </section>
-  
-  <section class="post">
-    <h3 class="post-title"><a href="/2017/04/30/first/" class="post-title-link" title="first">first</a></h3>
-    <div class="post-excerpt"></div>
-    <a href="/2017/04/30/first/" class="post-more" title="阅读全文">阅读全文 »</a>
-    <p class="post-meta">
-      
-      
-      <span class="post-time">2017-04-30</span>
-    </p>
-  </section>
-  
-  <section class="post">
-    <h3 class="post-title"><a href="/2017/04/30/hello-world/" class="post-title-link" title="Hello World">Hello World</a></h3>
-    <div class="post-excerpt"><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure></div>
-    <a href="/2017/04/30/hello-world/" class="post-more" title="阅读全文">阅读全文 »</a>
-    <p class="post-meta">
-      
-      
-      <span class="post-time">2017-04-30</span>
-    </p>
-  </section>
-  
-  <section class="post">
     <h3 class="post-title"><a href="/2017/04/23/2017_4_database/" class="post-title-link" title="mysql、redis、mongodb对比以及与python的交互">mysql、redis、mongodb对比以及与python的交互</a></h3>
-    <div class="post-excerpt"></div>
+    <div class="post-excerpt"><p>数据库使得底层数据得到持久化存储，保证数据的安全可靠性，并提供简易快捷的接口供数据需求者进行快速检索。在国内高校中，大学生普遍学习的数据库技术是Microsoft SQL Server，但它只能在wiindows上使用，一般配置ASP.Net 开发，为在windows系统下开发程序的人员带来了极大便利，属于关系型数据库。在本文中，我们主要涉及了三种数据库，如题，第一个是关系型数据库，后两个属于no sql，主要关注于它们的不同之处与操作，以及配合python 做交互。</p>
+<p>因为现在大数据非常非常非常火，所以提供了两个链接，大家可以看一看：</p>
+<ul>
+<li><a href="https://db-engines.com/en/ranking" target="_blank" rel="external">数据库受欢迎程度排名</a></li>
+<li><p><a href="http://mattturck.com/wp-content/uploads/2017/04/Big-Data-Landscape-2017-Matt-Turck-FirstMark.png" target="_blank" rel="external">2017年大数据版图</a></p>
+</li>
+<li><p><img src="../images/database.png" alt="数据库分类"></p>
+</li>
+</ul>
+<h1 id="mysql、redis、mongodb对比"><a href="#mysql、redis、mongodb对比" class="headerlink" title="mysql、redis、mongodb对比"></a>mysql、redis、mongodb对比</h1><h2 id="mysql-："><a href="#mysql-：" class="headerlink" title="mysql ："></a>mysql ：</h2><ul>
+<li>关系型数据库，需要创建库，并严格定义表结构；</li>
+<li>innodb行锁（仅对于操作数据库，如写入），支持事务，回文，myisam是表锁，不支持事务，查询快；</li>
+<li>性能，innodb强，服务器段多数用innodb引擎，而客户端一般用myisam；</li>
+</ul></div>
     <a href="/2017/04/23/2017_4_database/" class="post-more" title="阅读全文">阅读全文 »</a>
     <p class="post-meta">
       
@@ -186,29 +135,10 @@
   </section>
   
   <section class="post">
-    <h3 class="post-title"><a href="/2016/03/23/linux_2016_3/" class="post-title-link" title="认识 Linux">认识 Linux</a></h3>
+    <h3 class="post-title"><a href="/2016/03/23/2016_3_linux/" class="post-title-link" title="认识 Linux">认识 Linux</a></h3>
     <div class="post-excerpt"><h1 id="Linux-初步认识"><a href="#Linux-初步认识" class="headerlink" title="Linux 初步认识"></a>Linux 初步认识</h1><p>Linux是一套开源的类Unix操作系统，是一个可实现多用户、多任务、支持多线程和多CPU的网络操作系统。它继承于Unix操作系统以网络为核心的设计思想，因而可运行主要的UNIX工具软件、应用程序和网络协议，并且支持32位和64位硬件。</p>
 <p>目前，较为流行的版本有Linux Mint、Debian、Ubuntu、openSUSE、redhat、Fedora等。Linux系统应用很广泛，在个人桌面、服务器、嵌入式（如机顶盒、远程控制交换机、智能家居等）等领域都渗透其中。因为我接触的主要是ubuntu，以下内容涉及的也是ubuntu。<br>More info：<a href="http://www.xuexila.com/diannao/xitong/linux/656216.html" target="_blank" rel="external">Linux 系统排行排行</a></p>
 <h2 id="Linux-目录存储"><a href="#Linux-目录存储" class="headerlink" title="Linux 目录存储"></a>Linux 目录存储</h2><p>不同于我们经常应用的windows，Linux 没有磁盘的概念，只有一个根目录，所有的文件都存放在根目录下，跟mac系统很相近。</p>
-<ul>
-<li>/：根目录，一般根目录下只存放目录，在Linux下有且只有一个根目录。所有的东西都以此为起点。当你在终端输入“/home”，你其实是在告诉电脑，先从根目录开始，再进入到home目录。</div>
-    <a href="/2016/03/23/linux_2016_3/" class="post-more" title="阅读全文">阅读全文 »</a>
-    <p class="post-meta">
-      
-      <a href="/categories/操作系统/" title="操作系统" class="post-categories">操作系统</a>
-      
-      
-      <a href="/tags/linux、Ubuntu/"" title="linux、Ubuntu" class="post-tags"><i class="post-tags-icon iconfont icon-biaoqian"></i>linux、Ubuntu</a>
-      
-      <span class="post-time">2016-03-23</span>
-    </p>
-  </section>
-  
-  <section class="post">
-    <h3 class="post-title"><a href="/2016/03/23/2016_3_linux/" class="post-title-link" title="认识 Linux">认识 Linux</a></h3>
-    <div class="post-excerpt"><h3 id="Linux-初步认识"><a href="#Linux-初步认识" class="headerlink" title="Linux 初步认识"></a>Linux 初步认识</h3><p>Linux是一套开源的类Unix操作系统，是一个可实现多用户、多任务、支持多线程和多CPU的网络操作系统。它继承于Unix操作系统以网络为核心的设计思想，因而可运行主要的UNIX工具软件、应用程序和网络协议，并且支持32位和64位硬件。</p>
-<p>目前，较为流行的版本有Linux Mint、Debian、Ubuntu、openSUSE、redhat、Fedora等。Linux系统应用很广泛，在个人桌面、服务器、嵌入式（如机顶盒、远程控制交换机、智能家居等）等领域都渗透其中。因为我接触的主要是ubuntu，以下内容涉及的也是ubuntu。<br>More info：<a href="http://www.xuexila.com/diannao/xitong/linux/656216.html" target="_blank" rel="external">Linux 系统排行排行</a></p>
-<h3 id="Linux-目录存储"><a href="#Linux-目录存储" class="headerlink" title="Linux 目录存储"></a>Linux 目录存储</h3><p>不同于我们经常应用的windows，Linux 没有磁盘的概念，只有一个根目录，所有的文件都存放在根目录下，跟mac系统很相近。</p>
 <ul>
 <li>/：根目录，一般根目录下只存放目录，在Linux下有且只有一个根目录。所有的东西都以此为起点。当你在终端输入“/home”，你其实是在告诉电脑，先从根目录开始，再进入到home目录。</div>
     <a href="/2016/03/23/2016_3_linux/" class="post-more" title="阅读全文">阅读全文 »</a>

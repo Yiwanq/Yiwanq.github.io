@@ -132,7 +132,10 @@
 <h1 id="mysql、redis、mongodb对比"><a href="#mysql、redis、mongodb对比" class="headerlink" title="mysql、redis、mongodb对比"></a>mysql、redis、mongodb对比</h1><h2 id="mysql-："><a href="#mysql-：" class="headerlink" title="mysql ："></a>mysql ：</h2><ul>
 <li>关系型数据库，需要创建库，并严格定义表结构；</li>
 <li>innodb行锁（仅对于操作数据库，如写入），支持事务，回文，myisam是表锁，不支持事务，查询快；</li>
-<li>性能，innodb强，服务器innodb，而客户端myisam；</li>
+<li>性能，innodb强，服务器段多数用innodb引擎，而客户端一般用myisam；</li>
+</ul>
+<a id="more"></a> 
+<ul>
 <li>C和C++编写；</li>
 <li>存储数据时，计算机默认为32位，所以不用考虑字节；</li>
 <li>查询快，事务差；</li>

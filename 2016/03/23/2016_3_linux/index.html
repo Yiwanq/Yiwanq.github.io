@@ -120,9 +120,9 @@
     </p>
     
   </header>
-  <div class="post-content"><h3 id="Linux-初步认识"><a href="#Linux-初步认识" class="headerlink" title="Linux 初步认识"></a>Linux 初步认识</h3><p>Linux是一套开源的类Unix操作系统，是一个可实现多用户、多任务、支持多线程和多CPU的网络操作系统。它继承于Unix操作系统以网络为核心的设计思想，因而可运行主要的UNIX工具软件、应用程序和网络协议，并且支持32位和64位硬件。</p>
+  <div class="post-content"><h1 id="Linux-初步认识"><a href="#Linux-初步认识" class="headerlink" title="Linux 初步认识"></a>Linux 初步认识</h1><p>Linux是一套开源的类Unix操作系统，是一个可实现多用户、多任务、支持多线程和多CPU的网络操作系统。它继承于Unix操作系统以网络为核心的设计思想，因而可运行主要的UNIX工具软件、应用程序和网络协议，并且支持32位和64位硬件。</p>
 <p>目前，较为流行的版本有Linux Mint、Debian、Ubuntu、openSUSE、redhat、Fedora等。Linux系统应用很广泛，在个人桌面、服务器、嵌入式（如机顶盒、远程控制交换机、智能家居等）等领域都渗透其中。因为我接触的主要是ubuntu，以下内容涉及的也是ubuntu。<br>More info：<a href="http://www.xuexila.com/diannao/xitong/linux/656216.html" target="_blank" rel="external">Linux 系统排行排行</a></p>
-<h3 id="Linux-目录存储"><a href="#Linux-目录存储" class="headerlink" title="Linux 目录存储"></a>Linux 目录存储</h3><p>不同于我们经常应用的windows，Linux 没有磁盘的概念，只有一个根目录，所有的文件都存放在根目录下，跟mac系统很相近。</p>
+<h2 id="Linux-目录存储"><a href="#Linux-目录存储" class="headerlink" title="Linux 目录存储"></a>Linux 目录存储</h2><p>不同于我们经常应用的windows，Linux 没有磁盘的概念，只有一个根目录，所有的文件都存放在根目录下，跟mac系统很相近。</p>
 <ul>
 <li>/：根目录，一般根目录下只存放目录，在Linux下有且只有一个根目录。所有的东西都以此为起点。当你在终端输入“/home”，你其实是在告诉电脑，先从根目录开始，再进入到home目录。<a id="more"></a> </li>
 <li>/bin、usr/bin：可执行二进制文件的存放目录。</li>
@@ -144,17 +144,17 @@
 <li>/var：放置系统执行过程中经常变化的文件，如随时更改的日志文件。</li>
 <li>/var/log，/var/log/message：所有的登录文件存放目录，/var/spool/mail：邮件存放<br>的目录，/var/run:程序或服务启动后，其PID存放在该目录下。</li>
 </ul>
-<h3 id="Linux-基本命令"><a href="#Linux-基本命令" class="headerlink" title="Linux 基本命令"></a>Linux 基本命令</h3><h5 id="命令基本格式"><a href="#命令基本格式" class="headerlink" title="命令基本格式"></a>命令基本格式</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">command [-options] [parameter1] ...</div></pre></td></tr></table></figure>
-<h5 id="根目录"><a href="#根目录" class="headerlink" title="根目录"></a>根目录</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">python@ubuntu:~$ cd /  # 进入根目录</div><div class="line">python@ubuntu:/$ pwd   # 查看当前路径，在根目录下</div></pre></td></tr></table></figure>
-<h5 id="用户目录"><a href="#用户目录" class="headerlink" title="用户目录"></a>用户目录</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">python@ubuntu:/$ cd ~  # 进入当前用户的home目录</div><div class="line">python@ubuntu:~$ pwd</div><div class="line">/home/python</div></pre></td></tr></table></figure>
-<h5 id="相对路径与绝对路径"><a href="#相对路径与绝对路径" class="headerlink" title="相对路径与绝对路径"></a>相对路径与绝对路径</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">python@ubuntu:~$ pwd</div><div class="line">/home/python</div><div class="line">python@ubuntu:~$ cd ../  # 上级目录</div><div class="line">python@ubuntu:/home$</div><div class="line">python@ubuntu:/home$ cd ./  # 当前目录</div><div class="line">python@ubuntu:/home$</div></pre></td></tr></table></figure>
-<h5 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">python@ubuntu:/home$ ls -lh  # 查看当前文件夹下的文件与文件夹信息</div><div class="line">总用量 8.0K</div><div class="line">drwxr-xr-x 44 python python 4.0K 6月  13 14:05 python</div><div class="line">-rwxrwxrwx  1 root   root      0 3月  30 22:42 share</div><div class="line">drwxr-xr-x  2 xiao   xiao   4.0K 2月  23 11:42 xiao</div><div class="line">python@ubuntu:/home$</div></pre></td></tr></table></figure>
+<h2 id="Linux-基本命令"><a href="#Linux-基本命令" class="headerlink" title="Linux 基本命令"></a>Linux 基本命令</h2><h3 id="命令基本格式"><a href="#命令基本格式" class="headerlink" title="命令基本格式"></a>命令基本格式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">command [-options] [parameter1] ...</div></pre></td></tr></table></figure>
+<h3 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h3><h4 id="根目录"><a href="#根目录" class="headerlink" title="根目录"></a>根目录</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">python@ubuntu:~$ cd /  # 进入根目录</div><div class="line">python@ubuntu:/$ pwd   # 查看当前路径，在根目录下</div></pre></td></tr></table></figure>
+<h4 id="用户目录"><a href="#用户目录" class="headerlink" title="用户目录"></a>用户目录</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">python@ubuntu:/$ cd ~  # 进入当前用户的home目录</div><div class="line">python@ubuntu:~$ pwd</div><div class="line">/home/python</div></pre></td></tr></table></figure>
+<h4 id="相对路径与绝对路径"><a href="#相对路径与绝对路径" class="headerlink" title="相对路径与绝对路径"></a>相对路径与绝对路径</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">python@ubuntu:~$ pwd</div><div class="line">/home/python</div><div class="line">python@ubuntu:~$ cd ../  # 上级目录</div><div class="line">python@ubuntu:/home$</div><div class="line">python@ubuntu:/home$ cd ./  # 当前目录</div><div class="line">python@ubuntu:/home$</div></pre></td></tr></table></figure>
+<h4 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">python@ubuntu:/home$ ls -lh  # 查看当前文件夹下的文件与文件夹信息</div><div class="line">总用量 8.0K</div><div class="line">drwxr-xr-x 44 python python 4.0K 6月  13 14:05 python</div><div class="line">-rwxrwxrwx  1 root   root      0 3月  30 22:42 share</div><div class="line">drwxr-xr-x  2 xiao   xiao   4.0K 2月  23 11:42 xiao</div><div class="line">python@ubuntu:/home$</div></pre></td></tr></table></figure>
 <ul>
 <li>d 代表文件夹；</li>
 <li>‘-’ 代表普通文件；</li>
 <li>后面9个字母分别代表用户组权限：文件所有者、用户者、其他用户，每组分配3个字母，分别代表读r、写w和执行x。</li>
 </ul>
-<h5 id="帮助文档"><a href="#帮助文档" class="headerlink" title="帮助文档"></a>帮助文档</h5><ul>
+<h3 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h3><h4 id="帮助文档"><a href="#帮助文档" class="headerlink" title="帮助文档"></a>帮助文档</h4><ul>
 <li><p>–help</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ls --help  # 查看ls的帮助文档</div></pre></td></tr></table></figure>
 </li>
@@ -162,29 +162,29 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">man ls  # 查看ls的帮助文档</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h5 id="自动补全：tab键"><a href="#自动补全：tab键" class="headerlink" title="自动补全：tab键"></a>自动补全：tab键</h5><h5 id="历史命令：history"><a href="#历史命令：history" class="headerlink" title="历史命令：history"></a>历史命令：history</h5><h5 id="查看文件信息"><a href="#查看文件信息" class="headerlink" title="查看文件信息"></a>查看文件信息</h5><p>ls -alh</p>
+<h4 id="自动补全：tab键"><a href="#自动补全：tab键" class="headerlink" title="自动补全：tab键"></a>自动补全：tab键</h4><h4 id="历史命令：history"><a href="#历史命令：history" class="headerlink" title="历史命令：history"></a>历史命令：history</h4><h4 id="查看文件信息"><a href="#查看文件信息" class="headerlink" title="查看文件信息"></a>查看文件信息</h4><p>ls -alh</p>
 <ul>
 <li>-a 显示所有，包括隐藏</li>
 <li>-l 以列表方式显示详细信息</li>
 <li>-h 显示文件大小，与 -l 配合 使用</li>
 </ul>
-<h5 id="重新定向-gt"><a href="#重新定向-gt" class="headerlink" title="重新定向: &gt;"></a>重新定向: &gt;</h5><p>将命令执行结果重新定向并保存到一个文件中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python@ubuntu:/home$ ls &gt; test.txt  #如果test.txt cunzai存在则覆盖</div></pre></td></tr></table></figure></p>
-<h5 id="管道："><a href="#管道：" class="headerlink" title="管道： |"></a>管道： |</h5><p>左边为命令的输出作为右边命令的输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python@ubuntu:ps -aux|grep pycharm  # 查看pycharm 进程</div></pre></td></tr></table></figure></p>
-<h5 id="清屏：clear-、Ctrl-l-‘l’是小写的L"><a href="#清屏：clear-、Ctrl-l-‘l’是小写的L" class="headerlink" title="清屏：clear 、Ctrl + l (‘l’是小写的L)"></a>清屏：clear 、Ctrl + l (‘l’是小写的L)</h5><h5 id="切换工作目录：-cd"><a href="#切换工作目录：-cd" class="headerlink" title="切换工作目录： cd"></a>切换工作目录： cd</h5><ul>
+<h4 id="重新定向-gt"><a href="#重新定向-gt" class="headerlink" title="重新定向: &gt;"></a>重新定向: &gt;</h4><p>将命令执行结果重新定向并保存到一个文件中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python@ubuntu:/home$ ls &gt; test.txt  #如果test.txt cunzai存在则覆盖</div></pre></td></tr></table></figure></p>
+<h4 id="管道："><a href="#管道：" class="headerlink" title="管道： |"></a>管道： |</h4><p>左边为命令的输出作为右边命令的输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python@ubuntu:ps -aux|grep pycharm  # 查看pycharm 进程</div></pre></td></tr></table></figure></p>
+<h4 id="清屏：clear-、Ctrl-l-‘l’是小写的L"><a href="#清屏：clear-、Ctrl-l-‘l’是小写的L" class="headerlink" title="清屏：clear 、Ctrl + l (‘l’是小写的L)"></a>清屏：clear 、Ctrl + l (‘l’是小写的L)</h4><h4 id="切换工作目录：-cd"><a href="#切换工作目录：-cd" class="headerlink" title="切换工作目录： cd"></a>切换工作目录： cd</h4><ul>
 <li>cd ~  切换到当前用户主目录</li>
 <li>cd .  切换当前目录</li>
 <li>cd .. 切换到上级目录</li>
 <li>cd -  切换到上次所在目录</li>
 </ul>
-<h5 id="显示当前路径：-pwd"><a href="#显示当前路径：-pwd" class="headerlink" title="显示当前路径： pwd"></a>显示当前路径： pwd</h5><h5 id="创建目录：-mkdir"><a href="#创建目录：-mkdir" class="headerlink" title="创建目录： mkdir"></a>创建目录： mkdir</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">python@ubuntu:mkdir test</div><div class="line">python@ubuntu:mkdir a/b/c # 在当前路径下递归创建文件夹</div><div class="line">python@ubuntu:~$ cd a</div><div class="line">python@ubuntu:~/a$ tree</div><div class="line">.</div><div class="line">└── b</div><div class="line">    └── c</div></pre></td></tr></table></figure>
-<h5 id="删除文件-目录：-rm"><a href="#删除文件-目录：-rm" class="headerlink" title="删除文件/目录： rm"></a>删除文件/目录： rm</h5><p>rm 操作要小心，删除后的文件无法找回<br><a href="http://www.sohu.com/a/71271181_163917" target="_blank" rel="external">小案例</a></p>
+<h4 id="显示当前路径：-pwd"><a href="#显示当前路径：-pwd" class="headerlink" title="显示当前路径： pwd"></a>显示当前路径： pwd</h4><h4 id="创建目录：-mkdir"><a href="#创建目录：-mkdir" class="headerlink" title="创建目录： mkdir"></a>创建目录： mkdir</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">python@ubuntu:mkdir test</div><div class="line">python@ubuntu:mkdir a/b/c # 在当前路径下递归创建文件夹</div><div class="line">python@ubuntu:~$ cd a</div><div class="line">python@ubuntu:~/a$ tree</div><div class="line">.</div><div class="line">└── b</div><div class="line">    └── c</div></pre></td></tr></table></figure>
+<h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><h4 id="删除文件-目录：-rm"><a href="#删除文件-目录：-rm" class="headerlink" title="删除文件/目录： rm"></a>删除文件/目录： rm</h4><p>rm 操作要小心，删除后的文件无法找回<br><a href="http://www.sohu.com/a/71271181_163917" target="_blank" rel="external">小案例</a></p>
 <ul>
 <li>-i  交互方式执行</li>
 <li>-f  强制执行</li>
 <li>-r  递归删除目录下的内容，包括文件夹</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">python@ubuntu:~/a/b$ touch test.txt  # 创建新文件</div><div class="line">python@ubuntu:~/a/b$ ls</div><div class="line">c  test.txt</div><div class="line">python@ubuntu:~/a/b$ rm test.txt -i  # 询问是否删除</div><div class="line">rm：是否删除普通空文件 &apos;test.txt&apos;？ y</div><div class="line">python@ubuntu:~/a/b$ ls</div><div class="line">c</div></pre></td></tr></table></figure>
-<h5 id="链接：-ln"><a href="#链接：-ln" class="headerlink" title="链接： ln"></a>链接： ln</h5><ul>
+<h4 id="链接：-ln"><a href="#链接：-ln" class="headerlink" title="链接： ln"></a>链接： ln</h4><ul>
 <li><p>软连接：不占磁盘空间，作为指针指向硬链接地址，删除源文件，链接文件不可用；<br>ln -s 源文件 链接文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">python@ubuntu:~/a$ ln -s test.txt test_soft.txt</div><div class="line">python@ubuntu:~/a$ ls -lah</div><div class="line">总用量 8.0K</div><div class="line">drwxrwxr-x  2 python python 4.0K 6月  13 16:42 .</div><div class="line">drwxr-xr-x 45 python python 4.0K 6月  13 16:38 ..</div><div class="line">-rw-rw-r--  2 python python    0 6月  13 16:39 test_hard.txt</div><div class="line">lrwxrwxrwx  1 python python    8 6月  13 16:42 test_soft.txt -&gt; test.txt</div><div class="line">-rw-rw-r--  2 python python    0 6月  13 16:39 test.txt</div></pre></td></tr></table></figure>
 </li>
@@ -195,21 +195,21 @@
 <p><strong><br>注意：如果源文件跟链接文件不在同一个路径下并且使用相对路径时，系统始终以链接文件的位置作为起始点查找源文件；否则会出现红色文件，代表链接失败。
 </strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">python@ubuntu:~/a$ ln ../test.txt ./b/test3.txt</div><div class="line">python@ubuntu:~/a$ cd b</div><div class="line">python@ubuntu:~/a/b$ ls -lah</div><div class="line">总用量 8.0K</div><div class="line">drwxrwxr-x 2 python python 4.0K 6月  13 16:55 .</div><div class="line">drwxrwxr-x 3 python python 4.0K 6月  13 16:51 ..</div><div class="line">-rw-rw-r-- 3 python python    0 6月  13 16:38 test3.txt</div><div class="line">python@ubuntu:~/a/b$ cd ../</div><div class="line">python@ubuntu:~/a$ ln -s ../test.txt ./b/test4.txt</div><div class="line">python@ubuntu:~/a$ cd b</div><div class="line">python@ubuntu:~/a/b$ ls -lah</div><div class="line">总用量 8.0K</div><div class="line">drwxrwxr-x 2 python python 4.0K 6月  13 16:56 .</div><div class="line">drwxrwxr-x 3 python python 4.0K 6月  13 16:51 ..</div><div class="line">-rw-rw-r-- 3 python python    0 6月  13 16:38 test3.txt</div><div class="line">lrwxrwxrwx 1 python python   11 6月  13 16:56 test4.txt -&gt; ../test.txt</div><div class="line">python@ubuntu:~/a/b$</div></pre></td></tr></table></figure>
-<h5 id="查看或合并文件内容：cat"><a href="#查看或合并文件内容：cat" class="headerlink" title="查看或合并文件内容：cat"></a>查看或合并文件内容：cat</h5><p>例如，在test.txt 中写入hello world，在终端中打印出文件的全部内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">python@ubuntu:~/a/b$ cat test.txt</div><div class="line">hello world</div></pre></td></tr></table></figure></p>
+<h4 id="查看或合并文件内容：cat"><a href="#查看或合并文件内容：cat" class="headerlink" title="查看或合并文件内容：cat"></a>查看或合并文件内容：cat</h4><p>例如，在test.txt 中写入hello world，在终端中打印出文件的全部内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">python@ubuntu:~/a/b$ cat test.txt</div><div class="line">hello world</div></pre></td></tr></table></figure></p>
 <p>可与 重定向&gt; 一起写入，对文件内容进行更改。</p>
-<h5 id="文件搜索：grep"><a href="#文件搜索：grep" class="headerlink" title="文件搜索：grep"></a>文件搜索：grep</h5><ul>
+<h4 id="文件搜索：grep"><a href="#文件搜索：grep" class="headerlink" title="文件搜索：grep"></a>文件搜索：grep</h4><ul>
 <li>grep [-选项] ‘搜索内容串’文件名</li>
 <li>-v  显示不包含匹配文本的行</li>
 <li>-n  显示匹配行及行号</li>
 <li>-i  忽略大小写</li>
 <li>注意：可用正则表达式</li>
 </ul>
-<h5 id="查找文件：find"><a href="#查找文件：find" class="headerlink" title="查找文件：find"></a>查找文件：find</h5><ul>
+<h4 id="查找文件：find"><a href="#查找文件：find" class="headerlink" title="查找文件：find"></a>查找文件：find</h4><ul>
 <li>find 文件夹 [-name] 文件名</li>
 <li>find 文件夹 [-size] 大小</li>
 <li>find 文件夹 [-perm权限] 权限值</li>
 </ul>
-<h5 id="查找文件：cp"><a href="#查找文件：cp" class="headerlink" title="查找文件：cp"></a>查找文件：cp</h5><p>cp 源文件 复制文件</p>
+<h4 id="查找文件：cp"><a href="#查找文件：cp" class="headerlink" title="查找文件：cp"></a>查找文件：cp</h4><p>cp 源文件 复制文件</p>
 <ul>
 <li>-a 可用于目录，复制全部文件、链接</li>
 <li>-f 强制复制，不提示</li>
@@ -217,8 +217,8 @@
 <li>-r 递归复制文件夹内的文件</li>
 <li>-v 显示进度</li>
 </ul>
-<h5 id="移动文件或重命名：mv"><a href="#移动文件或重命名：mv" class="headerlink" title="移动文件或重命名：mv"></a>移动文件或重命名：mv</h5><p>mv 源文件 目标文件</p>
-<h5 id="打包并压缩-解压："><a href="#打包并压缩-解压：" class="headerlink" title="打包并压缩/解压："></a>打包并压缩/解压：</h5><ul>
+<h4 id="移动文件或重命名：mv"><a href="#移动文件或重命名：mv" class="headerlink" title="移动文件或重命名：mv"></a>移动文件或重命名：mv</h4><p>mv 源文件 目标文件</p>
+<h4 id="打包并压缩-解压："><a href="#打包并压缩-解压：" class="headerlink" title="打包并压缩/解压："></a>打包并压缩/解压：</h4><ul>
 <li><p>方法一：</p>
 <ul>
 <li>tar cvzf 压缩包包名 文件1 文件2 …</li>
@@ -234,12 +234,12 @@
 </ul>
 </li>
 </ul>
-<h5 id="查看命令位置：which"><a href="#查看命令位置：which" class="headerlink" title="查看命令位置：which"></a>查看命令位置：which</h5><p>which commend</p>
-<h5 id="切换用户：su"><a href="#切换用户：su" class="headerlink" title="切换用户：su"></a>切换用户：su</h5><ul>
+<h3 id="用户操作"><a href="#用户操作" class="headerlink" title="用户操作"></a>用户操作</h3><h4 id="查看命令位置：which"><a href="#查看命令位置：which" class="headerlink" title="查看命令位置：which"></a>查看命令位置：which</h4><p>which commend</p>
+<h4 id="切换用户：su"><a href="#切换用户：su" class="headerlink" title="切换用户：su"></a>切换用户：su</h4><ul>
 <li>su 用户名</li>
 <li>su -s  切换到管理员权限</li>
 </ul>
-<h5 id="修改文件权限：chmod"><a href="#修改文件权限：chmod" class="headerlink" title="修改文件权限：chmod"></a>修改文件权限：chmod</h5><ul>
+<h4 id="修改文件权限：chmod"><a href="#修改文件权限：chmod" class="headerlink" title="修改文件权限：chmod"></a>修改文件权限：chmod</h4><ul>
 <li><p>字母法：chmod u/g/o/a +/-/= rwx 文件名</p>
 <ul>
 <li>u  文件拥有者</li>
@@ -264,26 +264,26 @@
 </ul>
 </li>
 </ul>
-<h5 id="查看进程：ps"><a href="#查看进程：ps" class="headerlink" title="查看进程：ps"></a>查看进程：ps</h5><ul>
+<h3 id="配置操作"><a href="#配置操作" class="headerlink" title="配置操作"></a>配置操作</h3><h4 id="查看进程：ps"><a href="#查看进程：ps" class="headerlink" title="查看进程：ps"></a>查看进程：ps</h4><ul>
 <li>a  显示终端上的全部进程</li>
 <li>u  显示进程的详细状态</li>
 <li>x  显示没有终端的进程，即以守护进程开启的进程</li>
 <li>r  只显示正在运行的进程</li>
 </ul>
-<h5 id="终止进程：kill"><a href="#终止进程：kill" class="headerlink" title="终止进程：kill"></a>终止进程：kill</h5><p>kill [-signal] pid</p>
+<h4 id="终止进程：kill"><a href="#终止进程：kill" class="headerlink" title="终止进程：kill"></a>终止进程：kill</h4><p>kill [-signal] pid</p>
 <p>一般与ps 一起使用，后者查看进程号，前者终止。</p>
-<h5 id="关机"><a href="#关机" class="headerlink" title="关机"></a>关机</h5><ul>
+<h4 id="关机"><a href="#关机" class="headerlink" title="关机"></a>关机</h4><ul>
 <li>shutdown  关机</li>
 <li>reboot  重启</li>
 <li>init 0  关机最快的方法</li>
 <li>init 6  重启追快的方法</li>
 </ul>
-<h5 id="查看和配置网卡信息：ifconfig"><a href="#查看和配置网卡信息：ifconfig" class="headerlink" title="查看和配置网卡信息：ifconfig"></a>查看和配置网卡信息：ifconfig</h5><ul>
+<h4 id="查看和配置网卡信息：ifconfig"><a href="#查看和配置网卡信息：ifconfig" class="headerlink" title="查看和配置网卡信息：ifconfig"></a>查看和配置网卡信息：ifconfig</h4><ul>
 <li>ifconfig  只查看</li>
 <li>sudo ifconfig ens33 192:168:1:1  修改ip地址</li>
 </ul>
 <p>ens指网卡</p>
-<h5 id="测试远程主机的连通性：ping"><a href="#测试远程主机的连通性：ping" class="headerlink" title="测试远程主机的连通性：ping"></a>测试远程主机的连通性：ping</h5><ul>
+<h4 id="测试远程主机的连通性：ping"><a href="#测试远程主机的连通性：ping" class="headerlink" title="测试远程主机的连通性：ping"></a>测试远程主机的连通性：ping</h4><ul>
 <li>ping www.baidu.com</li>
 <li>ping 61.135.169.121  百度的ip</li>
 </ul>
@@ -295,7 +295,7 @@
       <div class="toc-wrapper">
         <div class="toc-scroll">
           <div class="toc-middle">
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-初步认识"><span class="toc-text">Linux 初步认识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-目录存储"><span class="toc-text">Linux 目录存储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-基本命令"><span class="toc-text">Linux 基本命令</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#命令基本格式"><span class="toc-text">命令基本格式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#根目录"><span class="toc-text">根目录</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#用户目录"><span class="toc-text">用户目录</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#相对路径与绝对路径"><span class="toc-text">相对路径与绝对路径</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#文件权限"><span class="toc-text">文件权限</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#帮助文档"><span class="toc-text">帮助文档</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#自动补全：tab键"><span class="toc-text">自动补全：tab键</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#历史命令：history"><span class="toc-text">历史命令：history</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#查看文件信息"><span class="toc-text">查看文件信息</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#重新定向-gt"><span class="toc-text">重新定向: ></span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#管道："><span class="toc-text">管道： |</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#清屏：clear-、Ctrl-l-‘l’是小写的L"><span class="toc-text">清屏：clear 、Ctrl + l (‘l’是小写的L)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#切换工作目录：-cd"><span class="toc-text">切换工作目录： cd</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#显示当前路径：-pwd"><span class="toc-text">显示当前路径： pwd</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#创建目录：-mkdir"><span class="toc-text">创建目录： mkdir</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#删除文件-目录：-rm"><span class="toc-text">删除文件/目录： rm</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#链接：-ln"><span class="toc-text">链接： ln</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#查看或合并文件内容：cat"><span class="toc-text">查看或合并文件内容：cat</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#文件搜索：grep"><span class="toc-text">文件搜索：grep</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#查找文件：find"><span class="toc-text">查找文件：find</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#查找文件：cp"><span class="toc-text">查找文件：cp</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#移动文件或重命名：mv"><span class="toc-text">移动文件或重命名：mv</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#打包并压缩-解压："><span class="toc-text">打包并压缩/解压：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#查看命令位置：which"><span class="toc-text">查看命令位置：which</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#切换用户：su"><span class="toc-text">切换用户：su</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#修改文件权限：chmod"><span class="toc-text">修改文件权限：chmod</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#查看进程：ps"><span class="toc-text">查看进程：ps</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#终止进程：kill"><span class="toc-text">终止进程：kill</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#关机"><span class="toc-text">关机</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#查看和配置网卡信息：ifconfig"><span class="toc-text">查看和配置网卡信息：ifconfig</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#测试远程主机的连通性：ping"><span class="toc-text">测试远程主机的连通性：ping</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux-初步认识"><span class="toc-text">Linux 初步认识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux-目录存储"><span class="toc-text">Linux 目录存储</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux-基本命令"><span class="toc-text">Linux 基本命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#命令基本格式"><span class="toc-text">命令基本格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#目录操作"><span class="toc-text">目录操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#根目录"><span class="toc-text">根目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#用户目录"><span class="toc-text">用户目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#相对路径与绝对路径"><span class="toc-text">相对路径与绝对路径</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件权限"><span class="toc-text">文件权限</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他操作"><span class="toc-text">其他操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#帮助文档"><span class="toc-text">帮助文档</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#自动补全：tab键"><span class="toc-text">自动补全：tab键</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#历史命令：history"><span class="toc-text">历史命令：history</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查看文件信息"><span class="toc-text">查看文件信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#重新定向-gt"><span class="toc-text">重新定向: ></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#管道："><span class="toc-text">管道： |</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#清屏：clear-、Ctrl-l-‘l’是小写的L"><span class="toc-text">清屏：clear 、Ctrl + l (‘l’是小写的L)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#切换工作目录：-cd"><span class="toc-text">切换工作目录： cd</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#显示当前路径：-pwd"><span class="toc-text">显示当前路径： pwd</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建目录：-mkdir"><span class="toc-text">创建目录： mkdir</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件操作"><span class="toc-text">文件操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#删除文件-目录：-rm"><span class="toc-text">删除文件/目录： rm</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#链接：-ln"><span class="toc-text">链接： ln</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查看或合并文件内容：cat"><span class="toc-text">查看或合并文件内容：cat</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件搜索：grep"><span class="toc-text">文件搜索：grep</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查找文件：find"><span class="toc-text">查找文件：find</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查找文件：cp"><span class="toc-text">查找文件：cp</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#移动文件或重命名：mv"><span class="toc-text">移动文件或重命名：mv</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#打包并压缩-解压："><span class="toc-text">打包并压缩/解压：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用户操作"><span class="toc-text">用户操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#查看命令位置：which"><span class="toc-text">查看命令位置：which</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#切换用户：su"><span class="toc-text">切换用户：su</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#修改文件权限：chmod"><span class="toc-text">修改文件权限：chmod</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置操作"><span class="toc-text">配置操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#查看进程：ps"><span class="toc-text">查看进程：ps</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#终止进程：kill"><span class="toc-text">终止进程：kill</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#关机"><span class="toc-text">关机</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查看和配置网卡信息：ifconfig"><span class="toc-text">查看和配置网卡信息：ifconfig</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#测试远程主机的连通性：ping"><span class="toc-text">测试远程主机的连通性：ping</span></a></li></ol></li></ol></li></ol></li></ol>
           </div>
         </div>
       </div>
